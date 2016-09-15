@@ -1,5 +1,5 @@
-#ifndef CBOARD_H
-#define CBOARD_H
+#ifndef THINLENS_H
+#define THINLENS_H
 
 #include "Shape.h"
 

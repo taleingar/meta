@@ -10,22 +10,15 @@ HitRecord ThinLens::intersect(const Ray &ray) {
 	HitRecord result;
 	result.t = -1;
 
-	// set up intersection at 
-
 	Eigen::MatrixXd m(3, 3);
-	m.col(0) = -ray.direction;
-	m.col(1) = u;
-	m.col(2) = v;
-	Eigen::Vector3d v = ray.origin - o;
-	Eigen::Vector3d res = m.inverse() * v;  // res(0) = t, res(1) = ucoeff, res(2) = v(coeff)
+	double t = (c - ray.origin).dot(n) / ray.direction.dot(n);
 
-											// need to check what happens if cannot inverse...
-	if (res[1] > 0 && res[1] < 1 &&
-		res[2] > 0 && res[2] < 1)            // hit
+	Eigen::Vector3d position = ray.origin + t*ray.direction;
+	if ((position - c).norm() < r)   // hit
 	{
-		result.t = res(0);
-		result.position = o + u*res(1) + v*res(2);
-		result.normal = v.cross(u).normalized();
+		result.normal = n;
+		result.position = position;
+		result.t = t;
 		return result;
 	}
 

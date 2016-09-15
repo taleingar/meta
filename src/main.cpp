@@ -4,6 +4,7 @@
 #include "Sphere.h"
 #include "Plane.h"
 #include "Checkerboard.h"
+#include "ThinLens.h"
 using namespace std;
 using namespace Raytracer148;
 using namespace Eigen;
@@ -202,7 +203,16 @@ int main() {
 	// create checker board
 	scene3.addShape(new CBoard(o, u, v, color1, color2, 5, 0.0));
 
-
+	center[0] = 1;
+	center[1] = 1;
+	center[2] = 2.9;
+	normal[0] = 0.0;
+	normal[1] = 0.0;
+	normal[2] = 1.0;
+	color[0] = 1.0;
+	color[1] = 0.0;
+	color[2] = 0.0;
+	scene3.addShape(new ThinLens(center, normal, 0.5, 0.5, color, 0.0));
 	//scene1.render(im1);
 	//scene2.render(im2);
 	scene3.render(im3);
