@@ -59,7 +59,7 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 	//if we have a hit, now cast a shadow
 	Ray shadowRay;
 	double shadowStrength = 1.0;
-/*	shadowRay.origin= r.position;
+	shadowRay.origin= r.position;
 	shadowRay.direction = (lightPos-r.position);
 	bool got_shadow = ShadowclosestHit(shadowRay, r.shapeId);
 	if(got_shadow){
@@ -67,7 +67,7 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 		//return Vector3d(0,0,0);
 		shadowStrength = shadowRatio;
 	}
-	*/
+	
 	//if we have a hit, now cast a reflection
 	Ray reflectRay;
 	reflectRay.origin= r.position;

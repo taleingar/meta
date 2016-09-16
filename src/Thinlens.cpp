@@ -7,14 +7,7 @@ using namespace Eigen;
 using namespace std;
 
 // must be somewhere in Eigen. But couldn't find...
-double PointToPlaneDist(Eigen::Vector3d &point, Eigen::Vector3d &pl_normal, Eigen::Vector3d &pl_point) {
-//	double sb, sn, sd;
-//	sn = -pl_normal.dot(point - pl_point);
-//	sd = pl_normal.dot(pl_normal);
-//	sb = sn / sd;
-
-//	Eigen::Vector3d b = point + sb*pl_normal;
-//	return (point - b).norm();
+inline double PointToPlaneDist(Eigen::Vector3d &point, Eigen::Vector3d &pl_normal, Eigen::Vector3d &pl_point) {
 	return pl_normal.normalized().dot(point - pl_point);
 }
 

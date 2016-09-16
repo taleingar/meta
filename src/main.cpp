@@ -13,7 +13,7 @@ int main() {
 	Image im(512, 512);
 
 	Scene scene;
-	scene.setShadow(0.5);
+	scene.setShadow(1);  // no shadow
 
 	Vector3d o;
 	Vector3d u;
@@ -49,7 +49,7 @@ int main() {
 	color[0] = 0.0;
 	color[1] = 0.0;
 	color[2] = 0.0;
-	scene.addShape(new ThinLens(center, normal, .6, 0.4, color, 1));
+	scene.addShape(new ThinLens(center, normal, .6, 0.4, color, 0.8));
 
 
 	center[0] = 0;
