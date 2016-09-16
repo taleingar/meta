@@ -6,7 +6,7 @@
 namespace Raytracer148 {
 	class ThinLens : public Shape {
 	public:
-
+		// reflect strength acts as transparancy strength. 1 is full transparent
 		ThinLens(Eigen::Vector3d &center, Eigen::Vector3d &normal, double radius, double focalLength, Eigen::Vector3d &color, double reflectStrength) :
 			c(center), n(normal), r(radius), fl(focalLength), o_color(color), reflect(reflectStrength) {}
 

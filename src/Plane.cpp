@@ -25,7 +25,9 @@ HitRecord Plane::intersect(const Ray &ray) {
 
 	result.t = t;
     result.position = position;
-	result.normal = n.normalized();
+//	result.normal = n.normalized();
+	Eigen::Vector3d normal = n.normalized();
+	result.direction = ray.direction - 2.0*normal.dot(ray.direction)*normal;
 	return result;
 }
 Vector3d Plane::getColor(Eigen::Vector3d &position){

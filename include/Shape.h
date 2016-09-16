@@ -11,7 +11,7 @@ struct Ray {
 class Shape;
     
 struct HitRecord {
-  Eigen::Vector3d position, normal, color;
+  Eigen::Vector3d position, direction, color;
   double t;
   int shapeId;
 };

@@ -72,7 +72,7 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 	Ray reflectRay;
 	reflectRay.origin= r.position;
 //	reflectRay.direction = ray.direction - 2.0*r.normal.dot(ray.direction)*r.normal;
-	reflectRay.direction = r.normal;
+	reflectRay.direction = r.direction;
 	Vector3d reflect_color(0,0,0);
 	if(recurse_level < max_recurse_level){
 		reflect_color = trace(reflectRay, ++recurse_level, max_recurse_level, r.shapeId);
@@ -87,7 +87,7 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 
 	// Diffuse
 	double diffuseStrength = 1.0;
-	Vector3d norm = r.normal.normalized();
+	Vector3d norm = r.direction.normalized();
 	double diff = norm.dot(lightDir);
 	Vector3d diffuse = diffuseStrength * max(diff, 0.0) * lightColor;
 

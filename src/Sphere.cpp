@@ -33,8 +33,10 @@ HitRecord Sphere::intersect(const Ray &ray) {
         result.t = t1;
     }
     
+
     result.position = ray.origin + result.t * ray.direction;
-    result.normal = (result.position - c).normalized();
+    Eigen::Vector3d normal = (result.position - c).normalized();
+	result.direction = (ray.direction - 2.0*normal.dot(ray.direction)*normal).normalized();
 
     return result;
 }

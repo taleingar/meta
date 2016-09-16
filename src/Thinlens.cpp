@@ -52,7 +52,7 @@ HitRecord ThinLens::intersect(const Ray &ray) {
 		}
 
 //		result.normal = (new_direction - ray.direction.normalized()).normalized();
-		result.normal = new_direction;
+		result.direction = new_direction;
 		result.position = position;
 		result.t = t;
 		return result;

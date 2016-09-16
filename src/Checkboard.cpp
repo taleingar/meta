@@ -27,7 +27,7 @@ HitRecord CBoard::intersect(const Ray &ray) {
 		result.position = o + u*res(1) + v*res(2);
 //		result.normal = v.cross(u).normalized();
 		Eigen::Vector3d normal = v.cross(u).normalized();
-		result.normal = ray.direction - 2.0*normal.dot(ray.direction)*normal;
+		result.direction = ray.direction - 2.0*normal.dot(ray.direction)*normal;
 		return result;
 	}
 	
