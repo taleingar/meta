@@ -113,7 +113,7 @@ void Scene::render(Image &image) {
 	// to (1,1,1).
 
 	assert(image.getWidth() == image.getHeight());
-	const int MAX_RECURSVE_STEP = 1;
+	const int MAX_RECURSVE_STEP = 20;
 
 	int size = image.getWidth();
 	double pixelSize = 2. / size;
