@@ -16,8 +16,8 @@ HitRecord CBoard::intersect(const Ray &ray) {
 	m.col(0) = -ray.direction;
 	m.col(1) = u;
 	m.col(2) = v;
-	Eigen::Vector3d v = ray.origin - o;
-	Eigen::Vector3d res = m.inverse() * v;  // res(0) = t, res(1) = ucoeff, res(2) = v(coeff)
+	Eigen::Vector3d vec = ray.origin - o;
+	Eigen::Vector3d res = m.inverse() * vec;  // res(0) = t, res(1) = ucoeff, res(2) = v(coeff)
 
 	// need to check what happens if cannot inverse...
 	if (res[1] > 0 && res[1] < 1 &&
@@ -25,7 +25,9 @@ HitRecord CBoard::intersect(const Ray &ray) {
 	{
 		result.t = res(0);
 		result.position = o + u*res(1) + v*res(2);
-		result.normal = v.cross(u).normalized();
+//		result.normal = v.cross(u).normalized();
+		Eigen::Vector3d normal = v.cross(u).normalized();
+		result.normal = ray.direction - 2.0*normal.dot(ray.direction)*normal;
 		return result;
 	}
 	
@@ -39,7 +41,7 @@ Vector3d CBoard::getColor(Eigen::Vector3d &position) {
 	m.col(1) = u;
 	m.col(2) = v;
 	Eigen::Vector3d res = m.inverse() * position;
-	if ( ((int)(res[0]*b) + (int)(res[1]*b))%2 )
+	if ( ((int)(res[1]*b) + (int)(res[2]*b))%2 )
 		return o_color1;
 	return o_color2;
 }

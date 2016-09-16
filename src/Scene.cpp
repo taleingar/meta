@@ -59,7 +59,7 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 	//if we have a hit, now cast a shadow
 	Ray shadowRay;
 	double shadowStrength = 1.0;
-	shadowRay.origin= r.position;
+/*	shadowRay.origin= r.position;
 	shadowRay.direction = (lightPos-r.position);
 	bool got_shadow = ShadowclosestHit(shadowRay, r.shapeId);
 	if(got_shadow){
@@ -67,11 +67,12 @@ Vector3d Scene::trace(const Ray &ray, int recurse_level, const int max_recurse_l
 		//return Vector3d(0,0,0);
 		shadowStrength = shadowRatio;
 	}
-
+	*/
 	//if we have a hit, now cast a reflection
 	Ray reflectRay;
 	reflectRay.origin= r.position;
-	reflectRay.direction = ray.direction - 2.0*r.normal.dot(ray.direction)*r.normal;
+//	reflectRay.direction = ray.direction - 2.0*r.normal.dot(ray.direction)*r.normal;
+	reflectRay.direction = r.normal;
 	Vector3d reflect_color(0,0,0);
 	if(recurse_level < max_recurse_level){
 		reflect_color = trace(reflectRay, ++recurse_level, max_recurse_level, r.shapeId);
@@ -113,7 +114,7 @@ void Scene::render(Image &image) {
 	// to (1,1,1).
 
 	assert(image.getWidth() == image.getHeight());
-	const int MAX_RECURSVE_STEP = 20;
+	const int MAX_RECURSVE_STEP = 200;
 
 	int size = image.getWidth();
 	double pixelSize = 2. / size;
@@ -149,12 +150,7 @@ void Scene::render(Image &image) {
 		}
 }
 
+
 void Scene::setShadow(double ratio){
 	shadowRatio = ratio;
 }
-
-/*
-void Scene::setReflect(double ratio){
-	reflectRatio = ratio;
-}
-*/

@@ -13,23 +13,7 @@ int main() {
 	Image im(128, 128);
 
 	Scene scene;
-
-	Vector3d center;
-	Vector3d normal;
-	Vector3d color;
-
-
-	scene.setShadow(1);
-/*
-	center[0] = 2;
-	center[1] = 3;
-	center[2] = 2;
-	color[0] = 1.0;
-	color[1] = 0.0;
-	color[2] = 0.0;
-//	scene3.addShape(new Sphere(center, color, 2, 0.9));
-*/
-
+	scene.setShadow(0.5);
 
 	Vector3d o;
 	Vector3d u;
@@ -51,35 +35,23 @@ int main() {
 	color2[1] = 0.2;
 	color2[2] = 0.2;
 	// create checker board
-	scene.addShape(new CBoard(o, u, v, color1, color2, 8, 0));
-
-	o[0] = 0;
-	o[1] = 0;
-	o[2] = 5;
+	scene.addShape(new CBoard(o, u, v, color1, color2, 6, 0));
+	
+	Vector3d center;
+	Vector3d normal;
+	Vector3d color;
+	center[0] = 0;
+	center[1] = 0.5;
+	center[2] = 1.5;
 	normal[0] = 0;
 	normal[1] = 0;
-	normal[2] = 1;
-	color1[0] = 1.0;
-	color1[1] = 1.0;
-	color1[2] = 1.0;
-	scene.addShape(new Plane(o, normal, color1, 100, 0));
-
-
-	center[0] = 1;
-	center[1] = 0;
-	center[2] = 1.5;
-	normal[0] = 0.0;
-	normal[1] = 0.0;
 	normal[2] = 1.0;
 	color[0] = 0.0;
 	color[1] = 0.0;
 	color[2] = 0.0;
-	scene.addShape(new ThinLens(center, normal, .6, 1.5, color, 0.8));
+	scene.addShape(new ThinLens(center, normal, .6, 0.4, color, 0.8));
 
 	scene.render(im);
-
-	//im1.writePNG("four_planes.png");
-	//im2.writePNG("shadow_reflect.png");
 
 	im.writePNG("lens.png");
 	return 0;
