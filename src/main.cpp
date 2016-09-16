@@ -10,7 +10,7 @@ using namespace Raytracer148;
 using namespace Eigen;
 
 int main() {
-	Image im(128, 128);
+	Image im(512, 512);
 
 	Scene scene;
 	scene.setShadow(0.5);
