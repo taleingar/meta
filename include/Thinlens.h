@@ -23,6 +23,8 @@ namespace Raytracer148 {
 		Eigen::Vector3d o_color;
 		double reflect;
 		LensType lensType;
+
+		inline double PointToPlaneDist(const Eigen::Vector3d &point, const Eigen::Vector3d &pl_normal, const Eigen::Vector3d &pl_point);
 	};
 }
 

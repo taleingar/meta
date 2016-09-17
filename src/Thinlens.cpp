@@ -7,7 +7,7 @@ using namespace Eigen;
 using namespace std;
 
 // must be somewhere in Eigen. But couldn't find...
-inline double PointToPlaneDist(const Eigen::Vector3d &point, const Eigen::Vector3d &pl_normal, const Eigen::Vector3d &pl_point) {
+inline double ThinLens::PointToPlaneDist(const Eigen::Vector3d &point, const Eigen::Vector3d &pl_normal, const Eigen::Vector3d &pl_point) {
 	return pl_normal.normalized().dot(point - pl_point);
 }
 
@@ -38,21 +38,20 @@ HitRecord ThinLens::intersect(const Ray &ray) {
 			Eigen::Vector3d image;
 			if (lensType == concave)
 			{
-				image = (i / o)*lens_to_obj + c;
-				if (o < fl) 
+				image = (-i / o)*lens_to_obj + c;
+				if (o > fl)
 					new_direction = (image - position).normalized();
-				else 
+				else
 					new_direction = (position - image).normalized();
 			}
 			else
 			{
-				image = (-i / o)*lens_to_obj + c;
-				if (o > fl) 
+				image = (i / o)*lens_to_obj + c;
+				if (o < fl)
 					new_direction = (image - position).normalized();
-				else 
+				else
 					new_direction = (position - image).normalized();
 			}
-
 		}
 
 //		result.normal = (new_direction - ray.direction.normalized()).normalized();

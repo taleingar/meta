@@ -29,10 +29,8 @@ public:
   void addShape(Shape *s) { shapes.push_back(s); }
   HitRecord closestHit(const Ray &ray, int shapeId);
   bool ShadowclosestHit(const Ray &ray, int shapeId);
- // void setReflect(double ratio);
   void setShadow(double ratio);
 
-  //Eigen::Vector3d trace(const Ray &ray);
   Eigen::Vector3d trace(const Ray &ray, int recurse_level, const int max_recurse_level, int shapeId);
   void render(Image &image);
 

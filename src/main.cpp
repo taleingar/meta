@@ -40,7 +40,7 @@ int main() {
 	Vector3d center;
 	Vector3d normal;
 	Vector3d color;
-	center[0] = 0;
+	center[0] = 0.9;
 	center[1] = 0;
 	center[2] = 2;
 	normal[0] = 0;
@@ -49,7 +49,7 @@ int main() {
 	color[0] = 0.0;
 	color[1] = 0.0;
 	color[2] = 0.0;
-	scene.addShape(new ThinLens(center, normal, .6, 1, color, 0.8, concave));
+	scene.addShape(new ThinLens(center, normal, .6, 1, color, 0.8, convex));
 
 	scene.render(im);
 	im.writePNG("lens.png");
