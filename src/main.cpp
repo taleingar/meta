@@ -40,7 +40,7 @@ int main() {
 	Vector3d center;
 	Vector3d normal;
 	Vector3d color;
-	center[0] = 0.9;
+	center[0] = 0;
 	center[1] = 0;
 	center[2] = 2;
 	normal[0] = 0;
