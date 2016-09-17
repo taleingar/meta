@@ -49,7 +49,7 @@ int main() {
 	color[0] = 0.0;
 	color[1] = 0.0;
 	color[2] = 0.0;
-	scene.addShape(new ThinLens(center, normal, .6, 1, color, 0.8, convex));
+	scene.addShape(new ThinLens(center, normal, .6, 1, color, 0.8, concave));
 
 	scene.render(im);
 	im.writePNG("lens.png");
