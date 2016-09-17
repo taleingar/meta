@@ -4,7 +4,7 @@
 #include "Sphere.h"
 #include "Plane.h"
 #include "Checkerboard.h"
-#include "ThinLens.h"
+#include "Thinlens.h"
 using namespace std;
 using namespace Raytracer148;
 using namespace Eigen;
