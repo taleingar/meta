@@ -21,7 +21,7 @@ int main() {
 	Vector3d color1, color2;
 	o[0] = -1.5;
 	o[1] = -1.5;
-	o[2] = 2;
+	o[2] = 3;
 	u[0] = 3;
 	u[1] = 0;
 	u[2] = 0;
@@ -41,38 +41,17 @@ int main() {
 	Vector3d normal;
 	Vector3d color;
 	center[0] = 0;
-	center[1] = 0.5;
-	center[2] = 1.5;
+	center[1] = 0;
+	center[2] = 2;
 	normal[0] = 0;
 	normal[1] = 0;
 	normal[2] = 1.0;
 	color[0] = 0.0;
 	color[1] = 0.0;
 	color[2] = 0.0;
-	scene.addShape(new ThinLens(center, normal, .6, 0.4, color, 0.8));
-
-
-	center[0] = 0;
-	center[1] = 0.1;
-	center[2] = 1.3;
-	normal[0] = 0;
-	normal[1] = 0;
-	normal[2] = 1.0;
-	color[0] = 1.0;
-	color[1] = 1.0;
-	color[2] = 0.0;
-//	scene.addShape(new ThinLens(center, normal, .3, 0.4, color, 0.6));
-
-	center[0] = 0;
-	center[1] = 0;
-	center[2] = 2;
-	color[0] = 0;
-	color[1] = 1;
-	color[2] = 0;
-//	scene.addShape(new Sphere(center, color, .5, .6));
+	scene.addShape(new ThinLens(center, normal, .6, 1, color, 0.8, concave));
 
 	scene.render(im);
-
 	im.writePNG("lens.png");
 	return 0;
 }

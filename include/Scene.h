@@ -13,8 +13,8 @@ public:
       //default light position
 //      lightPos[0] = 5.0;
  //     lightPos[1] = 5.0;
-      lightPos[0] = 1.0;
-      lightPos[1] = 1.0;
+      lightPos[0] = 0.0;
+      lightPos[1] = 0.0;
       lightPos[2] = -2.0;
       shadowRatio = 0.0;
       reflectRatio = 0.0;

@@ -10,7 +10,7 @@ namespace Raytracer148 {
 			o(origin), u(v1), v(v2), o_color1(color1), o_color2(color2), b(blocks), reflect(reflectStrength) {}
 
 		virtual HitRecord intersect(const Ray &ray);
-		virtual Eigen::Vector3d getColor(Eigen::Vector3d &position);
+		virtual Eigen::Vector3d getColor(const Eigen::Vector3d &position);
 		virtual double getReflectStrength();
 
 	private:

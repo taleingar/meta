@@ -35,7 +35,7 @@ HitRecord CBoard::intersect(const Ray &ray) {
 }
 
 
-Vector3d CBoard::getColor(Eigen::Vector3d &position) {
+Vector3d CBoard::getColor(const Eigen::Vector3d &position) {
 	Eigen::MatrixXd m(3, 3);
 	m.col(0) = o;
 	m.col(1) = u;

@@ -20,7 +20,7 @@ class Shape {
 public:
   virtual ~Shape(){}
   virtual HitRecord intersect(const Ray &ray) = 0;
-  virtual Eigen::Vector3d getColor(Eigen::Vector3d &position) = 0;
+  virtual Eigen::Vector3d getColor(const Eigen::Vector3d &position) = 0;
   virtual double getReflectStrength() = 0;
 };
 

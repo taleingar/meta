@@ -10,7 +10,7 @@ public:
 		c(center), n(normal), o_color(color), s(size), reflect(reflectStrength) {}
 
     virtual HitRecord intersect(const Ray &ray);
-    virtual Eigen::Vector3d getColor(Eigen::Vector3d &position);
+    virtual Eigen::Vector3d getColor(const Eigen::Vector3d &position);
 	virtual double getReflectStrength();
 
 private:

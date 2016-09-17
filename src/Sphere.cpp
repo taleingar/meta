@@ -41,7 +41,7 @@ HitRecord Sphere::intersect(const Ray &ray) {
     return result;
 }
 
-Vector3d Sphere::getColor(Eigen::Vector3d &position){
+Vector3d Sphere::getColor(const Eigen::Vector3d &position){
     return o_color;
 }
 
