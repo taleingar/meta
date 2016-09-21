@@ -16,6 +16,8 @@ HitRecord CBoard::intersect(const Ray &ray) {
 	m.col(0) = -ray.direction;
 	m.col(1) = u;
 	m.col(2) = v;
+	if (m.determinant() == 0)    // no inversion for matrix, ray is parallel to plane.
+		return result;
 	Eigen::Vector3d vec = ray.origin - o;
 	Eigen::Vector3d res = m.inverse() * vec;  // res(0) = t, res(1) = ucoeff, res(2) = v(coeff)
 
